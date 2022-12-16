@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Luckiest+Guy&family=Open+Sans:wght@300;500&family=Pacifico&display=swap');
+
+
+
+
+// Variables
+$color: #fff;
+$fontFamily: Roboto;
+$primary-fs: 48px;
+$secondary-fs: 21px;
+$cool-blue: #38CFD9;
+$another-cool-color: #136C72;
+$lucky-guy: 'Luckiest Guy', cursive;
+$open-guy: 'Open Sans', sans-serif;
+$deep-cool: #23424A;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &::after, &::before {
+        box-sizing: border-box;
+        margin: 0;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+header.intro {
+    font-family: $fontFamily;
+    color: $color;
+    background-color: $deep-cool;
+    width: 100%;
+
+    .intro_content {
+        width: 80%;
+        text-align: left;
+        padding: 8em 0em 8em 5.5em ;
+        // position: absolute;
+        // top: 0;
+        // z-index: 100;
+
+
+        h1.head_text {
+            font-size: $primary-fs;
+            width: inherit;
+            max-width: 750px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        p.hero_text  {
+            font-size: $secondary-fs;
+            font-weight: 200;
+            margin: 1.5em 0 3em;
+            font-size: $secondary-fs;
+            width: 90%;
+            max-width: 800px;
+            line-height: 30px;
+            letter-spacing: 2px;
+        
+        }
+
+        button[type="submit"] {
+            padding: 0.7em 1.9em;
+            text-align: center;
+            // width: 40%;
+            cursor: pointer;
+            text-transform: uppercase;
+            color: $another-cool-color;
+            border: 0;
+            border-radius: 40px;
+            font-size: $secondary-fs;
+            background-color: $cool-blue;
+            font-weight: bold;
+            transition: 500ms;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 2px 2px 7px rgb(0 0 0 / .2);
+            }
+        }
+    }
+ 
+    // For the nav
+    nav#main_nav {
+        position: fixed;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2em 5em;
+        background-color: $cool-blue;
+        z-index: 777;
+
+        .logo {
+            width: 70%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-family: $lucky-guy;
+            
+
+            h1 {
+                // text-align: center;
+                letter-spacing: 1.5rem;
+                position: relative;
+                top: 0.2em;
+                background-attachment: fixed;
+                vertical-align: middle;
+            }
+
+            .slogan {
+                text-align: left;
+                font-weight: 100;
+                font-size: calc(1rem - 1pt);
+                position: absolute;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: 500ms;
+                
+                @keyframes slideIn {
+                    from {
+                    opacity: 0;
+                    transform: translateY(-100%);
+                    }
+    
+                    to {
+                    opacity: 1;
+                    transform: translateY(0%);
+                    }
+                }
+            }
+
+            &:hover .slogan {
+                animation: slideIn 350ms ease-in both;
+            }
+           
+        }
+
+        ul {
+            margin: 0;
+            display: flex;
+            width: 30%;
+            justify-content: space-between;
+
+            li {
+                list-style: none;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    width: 0%;
+                    display: block;
+                    margin-top: 5px;
+                    background-color: $color;
+                    // position: absolute;
+                    height: 3px;
+                    margin: auto;
+                    transition: 500ms;
+                    border-radius: 20px;
+                    /* Reference
+                         content: "";
+                        width: 0%;
+                        height: 2px;
+                        background: var(--color-primary);
+                        display: block;
+                        margin: auto;
+                        transition: 0.5s;
+                        margin-top: 5px;
+                    */
+
+                    
+                    
+                }
+
+
+               &:hover::after {
+                        width: 100%;
+                    }
+
+                
+
+                a {
+                    color: $color;
+                    font-weight: 500;
+                    text-decoration: none;
+                    letter-spacing: 0.2em;
+                }
+            }
+        }
+
+           }
+
+}
+
+// main stuff only
+main#theDeal  {
+    background-color: $another-cool-color;
+    height: auto;
+    font-family: $lucky-guy;
+    color: $color;
+    width: 100%;
+
+    h1.main_header {
+        text-align: center;
+        padding: 1.5em 0 0;
+        letter-spacing: 3px;
+    }
+
+    section.lil_talk {
+        display: flow-root;
+        width: 80%;
+        margin: 20px auto;
+        padding: 0 0 4em 0;
+        background-color: $deep-cool;
+        border-radius: 5pt;
+        box-shadow: 3px 3px 7px rgb(0 0 0 / .2),
+        -3px -3px 7px rgb(0 0 0 / .2);
+        padding: 3em 2em;
+
+        h2.history  {
+            text-align: left;
+            padding: 1em 0;
+            letter-spacing: 3px;
+        }
+        p.some_text {
+            font-family: $open-guy;
+            text-align: left;
+        }
+
+        img {
+            float: left;
+            shape-outside: polygon(50%);
+            shape-margin: 2rem;
+            margin-right: 1rem;
+        }
+    }
+}

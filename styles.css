@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Luckiest+Guy&family=Open+Sans:wght@300;500&family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+header.intro {
+  font-family: Roboto;
+  color: #fff;
+  background-color: #23424A;
+  width: 100%;
+}
+header.intro .intro_content {
+  width: 80%;
+  text-align: left;
+  padding: 8em 0em 8em 5.5em;
+}
+header.intro .intro_content h1.head_text {
+  font-size: 48px;
+  width: inherit;
+  max-width: 750px;
+  font-weight: 900;
+  margin: 0;
+}
+header.intro .intro_content p.hero_text {
+  font-size: 21px;
+  font-weight: 200;
+  margin: 1.5em 0 3em;
+  font-size: 21px;
+  width: 90%;
+  max-width: 800px;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+header.intro .intro_content button[type=submit] {
+  padding: 0.7em 1.9em;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #136C72;
+  border: 0;
+  border-radius: 40px;
+  font-size: 21px;
+  background-color: #38CFD9;
+  font-weight: bold;
+  transition: 500ms;
+}
+header.intro .intro_content button[type=submit]:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+}
+header.intro nav#main_nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2em 5em;
+  background-color: #38CFD9;
+  z-index: 777;
+}
+header.intro nav#main_nav .logo {
+  width: 70%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-family: "Luckiest Guy", cursive;
+}
+header.intro nav#main_nav .logo h1 {
+  letter-spacing: 1.5rem;
+  position: relative;
+  top: 0.2em;
+  background-attachment: fixed;
+  vertical-align: middle;
+}
+header.intro nav#main_nav .logo .slogan {
+  text-align: left;
+  font-weight: 100;
+  font-size: calc(1rem - 1pt);
+  position: absolute;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: 500ms;
+}
+@-webkit-keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+header.intro nav#main_nav .logo:hover .slogan {
+  -webkit-animation: slideIn 350ms ease-in both;
+          animation: slideIn 350ms ease-in both;
+}
+header.intro nav#main_nav ul {
+  margin: 0;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+header.intro nav#main_nav ul li {
+  list-style: none;
+  position: relative;
+}
+header.intro nav#main_nav ul li::after {
+  content: "";
+  width: 0%;
+  display: block;
+  margin-top: 5px;
+  background-color: #fff;
+  height: 3px;
+  margin: auto;
+  transition: 500ms;
+  border-radius: 20px;
+  /* Reference
+       content: "";
+      width: 0%;
+      height: 2px;
+      background: var(--color-primary);
+      display: block;
+      margin: auto;
+      transition: 0.5s;
+      margin-top: 5px;
+  */
+}
+header.intro nav#main_nav ul li:hover::after {
+  width: 100%;
+}
+header.intro nav#main_nav ul li a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+}
+
+main#theDeal {
+  background-color: #136C72;
+  height: auto;
+  font-family: "Luckiest Guy", cursive;
+  color: #fff;
+  width: 100%;
+}
+main#theDeal h1.main_header {
+  text-align: center;
+  padding: 1.5em 0 0;
+  letter-spacing: 3px;
+}
+main#theDeal section.lil_talk {
+  display: flow-root;
+  width: 80%;
+  margin: 20px auto;
+  padding: 0 0 4em 0;
+  background-color: #23424A;
+  border-radius: 5pt;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2), -3px -3px 7px rgba(0, 0, 0, 0.2);
+  padding: 3em 2em;
+}
+main#theDeal section.lil_talk h2.history {
+  text-align: left;
+  padding: 1em 0;
+  letter-spacing: 3px;
+}
+main#theDeal section.lil_talk p.some_text {
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+}
+main#theDeal section.lil_talk img {
+  float: left;
+  shape-outside: polygon(50%);
+  shape-margin: 2rem;
+  margin-right: 1rem;
+}/*# sourceMappingURL=styles.css.map */
