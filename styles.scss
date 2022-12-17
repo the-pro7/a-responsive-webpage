@@ -88,14 +88,16 @@ header.intro {
  
     // For the nav
     nav#main_nav {
+        position: relative;
         position: fixed;
         width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
         padding: 2em 5em;
-        background-color: $cool-blue;
+        // background-color: $cool-blue;
         z-index: 777;
+        // box-shadow: 3px 3px 7px rgb(0 0 0 / .2);
 
         .logo {
             width: 70%;
@@ -115,12 +117,13 @@ header.intro {
 
             .slogan {
                 text-align: left;
-                font-weight: 100;
+                font-weight: 400;
                 font-size: calc(1rem - 1pt);
                 position: absolute;
                 transform: translateY(-100%);
                 opacity: 0;
                 transition: 500ms;
+                font-family: $open-guy;
                 
                 @keyframes slideIn {
                     from {
@@ -146,6 +149,7 @@ header.intro {
             display: flex;
             width: 30%;
             justify-content: space-between;
+            transition: all 500ms;
 
             li {
                 list-style: none;
@@ -193,7 +197,68 @@ header.intro {
             }
         }
 
+        // When active class is added to ul by JS
+        ul.active {
+            transform: translateX(0%);
+        }
+
+        //    The burger goes here
+        .burger {
+            display: block;
+            cursor: pointer;
+            display: none;
+
+            div {
+                width: 30px;
+                height: 5px;
+                margin: 5px;
+                background-color: $color;
+                border-radius: 20px;
+                transition: 500ms;
+
+            }
+        }
+
+        .burger.close {
+            .line1 {
+                transform: rotate(-45deg) translate(-7px, 7px);
+            }
+
+            .line2 {
+                opacity: 0;
+            }
+
+            .line3 {
+                transform: rotate(45deg) translate(-7px, -7px);
+            }
+            
+        }
+
+        // First media query
+        @media screen and (max-width: 1069px) {
+            ul {
+                position: absolute;
+                margin: 0;
+                width: 50%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                top: 100%;
+                background: inherit;
+                right: 0;
+                min-height: 85vh;
+                transform: translateX(100%);
+                box-shadow:  3px 0px 10px rgb(0 0 0 / .1);
+        }
+
+        .burger {
+            display: block;
+        }
+    }
            }
+
+        
 
 }
 
@@ -209,6 +274,28 @@ main#theDeal  {
         text-align: center;
         padding: 1.5em 0 0;
         letter-spacing: 3px;
+
+        &::after {
+            content: '';
+            width: 20%;
+            display: block;
+            margin-top: 5px;
+            height: 6.5px;
+            border-radius: 30px;
+            margin: auto;
+            background-color: $color;
+
+             /* Reference
+                         content: "";
+                        width: 0%;
+                        height: 2px;
+                        background: var(--color-primary);
+                        display: block;
+                        margin: auto;
+                        transition: 0.5s;
+                        margin-top: 5px;
+                    */
+        }
     }
 
     section.lil_talk {

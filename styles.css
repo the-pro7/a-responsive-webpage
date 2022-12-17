@@ -60,13 +60,13 @@ header.intro .intro_content button[type=submit]:hover {
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
 }
 header.intro nav#main_nav {
+  position: relative;
   position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 2em 5em;
-  background-color: #38CFD9;
   z-index: 777;
 }
 header.intro nav#main_nav .logo {
@@ -84,12 +84,13 @@ header.intro nav#main_nav .logo h1 {
 }
 header.intro nav#main_nav .logo .slogan {
   text-align: left;
-  font-weight: 100;
+  font-weight: 400;
   font-size: calc(1rem - 1pt);
   position: absolute;
   transform: translateY(-100%);
   opacity: 0;
   transition: 500ms;
+  font-family: "Open Sans", sans-serif;
 }
 @-webkit-keyframes slideIn {
   from {
@@ -120,6 +121,7 @@ header.intro nav#main_nav ul {
   display: flex;
   width: 30%;
   justify-content: space-between;
+  transition: all 500ms;
 }
 header.intro nav#main_nav ul li {
   list-style: none;
@@ -155,6 +157,51 @@ header.intro nav#main_nav ul li a {
   text-decoration: none;
   letter-spacing: 0.2em;
 }
+header.intro nav#main_nav ul.active {
+  transform: translateX(0%);
+}
+header.intro nav#main_nav .burger {
+  display: block;
+  cursor: pointer;
+  display: none;
+}
+header.intro nav#main_nav .burger div {
+  width: 30px;
+  height: 5px;
+  margin: 5px;
+  background-color: #fff;
+  border-radius: 20px;
+  transition: 500ms;
+}
+header.intro nav#main_nav .burger.close .line1 {
+  transform: rotate(-45deg) translate(-7px, 7px);
+}
+header.intro nav#main_nav .burger.close .line2 {
+  opacity: 0;
+}
+header.intro nav#main_nav .burger.close .line3 {
+  transform: rotate(45deg) translate(-7px, -7px);
+}
+@media screen and (max-width: 1069px) {
+  header.intro nav#main_nav ul {
+    position: absolute;
+    margin: 0;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    top: 100%;
+    background: inherit;
+    right: 0;
+    min-height: 85vh;
+    transform: translateX(100%);
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  header.intro nav#main_nav .burger {
+    display: block;
+  }
+}
 
 main#theDeal {
   background-color: #136C72;
@@ -167,6 +214,26 @@ main#theDeal h1.main_header {
   text-align: center;
   padding: 1.5em 0 0;
   letter-spacing: 3px;
+}
+main#theDeal h1.main_header::after {
+  content: "";
+  width: 20%;
+  display: block;
+  margin-top: 5px;
+  height: 6.5px;
+  border-radius: 30px;
+  margin: auto;
+  background-color: #fff;
+  /* Reference
+              content: "";
+             width: 0%;
+             height: 2px;
+             background: var(--color-primary);
+             display: block;
+             margin: auto;
+             transition: 0.5s;
+             margin-top: 5px;
+         */
 }
 main#theDeal section.lil_talk {
   display: flow-root;
