@@ -60,17 +60,15 @@ header.intro .intro_content button[type=submit]:hover {
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
 }
 header.intro nav#main_nav {
-  position: relative;
   position: fixed;
   width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   padding: 2em 5em;
+  transition: 500ms;
   z-index: 777;
 }
 header.intro nav#main_nav .logo {
-  width: 70%;
   font-size: 1.2rem;
   cursor: pointer;
   font-family: "Luckiest Guy", cursive;
@@ -118,10 +116,13 @@ header.intro nav#main_nav .logo:hover .slogan {
 }
 header.intro nav#main_nav ul {
   margin: 0;
+  padding: 0;
   display: flex;
-  width: 30%;
-  justify-content: space-between;
+  width: 90%;
   transition: all 500ms;
+  align-items: center;
+  gap: 3em;
+  justify-content: center;
 }
 header.intro nav#main_nav ul li {
   list-style: none;
@@ -137,16 +138,6 @@ header.intro nav#main_nav ul li::after {
   margin: auto;
   transition: 500ms;
   border-radius: 20px;
-  /* Reference
-       content: "";
-      width: 0%;
-      height: 2px;
-      background: var(--color-primary);
-      display: block;
-      margin: auto;
-      transition: 0.5s;
-      margin-top: 5px;
-  */
 }
 header.intro nav#main_nav ul li:hover::after {
   width: 100%;
@@ -156,6 +147,19 @@ header.intro nav#main_nav ul li a {
   font-weight: 500;
   text-decoration: none;
   letter-spacing: 0.2em;
+}
+header.intro nav#main_nav ul li:nth-of-type(1) {
+  margin-left: auto;
+}
+header.intro nav#main_nav ul li:nth-of-type(5) {
+  border: 2px solid #fff;
+  padding: 0.5em 1.5em;
+  margin-left: auto;
+  border-radius: 40px;
+  transition: 0.4s;
+}
+header.intro nav#main_nav ul li:nth-of-type(5):hover {
+  color: #38CFD9;
 }
 header.intro nav#main_nav ul.active {
   transform: translateX(0%);
@@ -183,24 +187,54 @@ header.intro nav#main_nav .burger.close .line3 {
   transform: rotate(45deg) translate(-7px, -7px);
 }
 @media screen and (max-width: 1069px) {
+  header.intro nav#main_nav .burger {
+    width: 10%;
+  }
+  header.intro nav#main_nav nav#main_nav {
+    justify-content: space-between;
+  }
+  header.intro nav#main_nav .logo {
+    width: 90%;
+  }
   header.intro nav#main_nav ul {
     position: absolute;
-    margin: 0;
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     top: 100%;
-    background: inherit;
+    background-color: #38CFD9;
     right: 0;
-    min-height: 85vh;
+    min-height: 90vh;
     transform: translateX(100%);
     box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  header.intro nav#main_nav ul li:nth-of-type(1) {
+    margin-top: auto;
+    margin-right: auto;
+  }
+  header.intro nav#main_nav ul li:nth-of-type(5) {
+    border: 2px solid #fff;
+    padding: 0.5em 1.5em;
+    margin-top: auto;
+    margin-right: auto;
+    border-radius: 40px;
+    transition: 0.4s;
+  }
+  header.intro nav#main_nav ul li:nth-of-type(5):hover {
+    color: #38CFD9;
+  }
+  header.intro nav#main_nav ul li:nth-of-type(6) {
+    margin-bottom: auto;
   }
   header.intro nav#main_nav .burger {
     display: block;
   }
+}
+header.intro nav.active {
+  background-color: #38CFD9;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
 }
 
 main#theDeal {
@@ -259,4 +293,120 @@ main#theDeal section.lil_talk img {
   shape-outside: polygon(50%);
   shape-margin: 2rem;
   margin-right: 1rem;
+}
+main#theDeal section.courses {
+  width: 80%;
+  margin: 3em auto 0;
+}
+main#theDeal section.courses h2.course_heading {
+  text-align: center;
+  letter-spacing: 3px;
+}
+main#theDeal section.courses .courses_cards {
+  width: 100%;
+  background-color: #38CFD9;
+  margin: 2em auto;
+  min-height: 50vh;
+  border-radius: 5pt;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2), -3px -3px 7px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 3em;
+}
+main#theDeal section.courses .courses_cards .card {
+  width: 300px;
+  height: auto;
+  padding: 0 0 3em;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 5pt;
+  position: relative;
+  margin-bottom: 1em;
+}
+main#theDeal section.courses .courses_cards .card div:not(.img_container) {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  /*   background-color: red; */
+  overflow: hidden;
+  top: -10px;
+  left: -10px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main#theDeal section.courses .courses_cards .card div:not(.img_container)::before {
+  content: "30% OFF";
+  position: absolute;
+  width: 150%;
+  height: 40px;
+  background-color: #136C72;
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  font-weight: 900;
+}
+main#theDeal section.courses .courses_cards .card div:not(.img_container)::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-color: #23424A;
+  box-shadow: 90px -90px #23424A; /* 100 - 10 - 90 => box-shadow*/
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+main#theDeal section.courses .courses_cards .card figure {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+  align-items: center;
+  width: 100%;
+}
+main#theDeal section.courses .courses_cards .card figure .img_container {
+  margin: 0;
+  display: inherit;
+  justify-content: inherit;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50% !important;
+}
+main#theDeal section.courses .courses_cards .card figure figcaption {
+  width: inherit;
+  text-align: center;
+}
+main#theDeal section.courses .courses_cards .card figure figcaption h2 {
+  letter-spacing: 3px;
+}
+main#theDeal section.courses .courses_cards .card figure figcaption .price {
+  font-size: 2rem;
+  padding: 0.2em 0 0.5em;
+}
+main#theDeal section.courses .courses_cards .card figure figcaption .price sup {
+  font-size: 1rem;
+}
+main#theDeal section.courses .courses_cards .card figure figcaption a[role=button] {
+  color: #136C72;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  border: 2px solid currentColor;
+  padding: 0.5em;
+  width: 100%;
+  border-radius: 5pt;
+  transition: border-radius 500ms;
+}
+main#theDeal section.courses .courses_cards .card figure figcaption a[role=button]:hover {
+  border-radius: 0;
+  background-color: #136C72;
+  color: #fff;
 }/*# sourceMappingURL=styles.css.map */

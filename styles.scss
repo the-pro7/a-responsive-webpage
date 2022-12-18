@@ -13,6 +13,12 @@ $another-cool-color: #136C72;
 $lucky-guy: 'Luckiest Guy', cursive;
 $open-guy: 'Open Sans', sans-serif;
 $deep-cool: #23424A;
+$section_header_ls: 3px;
+$justOkay_br: 5pt;
+$justOkay_bs: 3px 3px 7px rgb(0 0 0 / .2),
+-3px -3px 7px rgb(0 0 0 / .2);
+$circles: 50%;
+$genTrans: 500ms;
 
 * {
     margin: 0;
@@ -88,19 +94,16 @@ header.intro {
  
     // For the nav
     nav#main_nav {
-        position: relative;
+        // position: relative;
         position: fixed;
         width: 100%;
         display: flex;
-        justify-content: space-around;
         align-items: center;
         padding: 2em 5em;
-        // background-color: $cool-blue;
+        transition: 500ms;
         z-index: 777;
-        // box-shadow: 3px 3px 7px rgb(0 0 0 / .2);
-
         .logo {
-            width: 70%;
+            // width: 30%;
             font-size: 1.2rem;
             cursor: pointer;
             font-family: $lucky-guy;
@@ -146,10 +149,13 @@ header.intro {
 
         ul {
             margin: 0;
+            padding: 0;
             display: flex;
-            width: 30%;
-            justify-content: space-between;
+            width: 90%;
             transition: all 500ms;
+            align-items: center;
+            gap: 3em;
+            justify-content: center;
 
             li {
                 list-style: none;
@@ -161,24 +167,10 @@ header.intro {
                     display: block;
                     margin-top: 5px;
                     background-color: $color;
-                    // position: absolute;
                     height: 3px;
                     margin: auto;
                     transition: 500ms;
-                    border-radius: 20px;
-                    /* Reference
-                         content: "";
-                        width: 0%;
-                        height: 2px;
-                        background: var(--color-primary);
-                        display: block;
-                        margin: auto;
-                        transition: 0.5s;
-                        margin-top: 5px;
-                    */
-
-                    
-                    
+                    border-radius: 20px;                                     
                 }
 
 
@@ -195,6 +187,23 @@ header.intro {
                     letter-spacing: 0.2em;
                 }
             }
+
+              li:nth-of-type(1) {
+                    margin-left: auto;
+                }
+
+              li:nth-of-type(5) {
+                    border: 2px solid $color;
+                    padding: 0.5em 1.5em;
+                    margin-left: auto;
+                    border-radius: 40px;
+                    transition: .4s;
+
+                    &:hover {
+                        // background-color: $color;
+                        color: $cool-blue;
+                    }
+                }
         }
 
         // When active class is added to ul by JS
@@ -236,26 +245,65 @@ header.intro {
 
         // First media query
         @media screen and (max-width: 1069px) {
+           .burger {
+            width: 10%;
+           }
+            nav#main_nav {
+                  justify-content: space-between;
+            }
+
+             .logo {
+                width: 90%;
+            }
+
             ul {
                 position: absolute;
-                margin: 0;
                 width: 50%;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
                 flex-direction: column;
                 top: 100%;
-                background: inherit;
+                background-color: $cool-blue;
                 right: 0;
-                min-height: 85vh;
+                min-height: 90vh;
                 transform: translateX(100%);
                 box-shadow:  3px 0px 10px rgb(0 0 0 / .1);
+
+                 li:nth-of-type(1) {
+                    margin-top: auto;
+                    margin-right: auto;
+                }
+
+              li:nth-of-type(5) {
+                    border: 2px solid $color;
+                    padding: 0.5em 1.5em;
+                    margin-top: auto;
+                    margin-right: auto;
+                    border-radius: 40px;
+                    transition: .4s;
+
+                    &:hover {
+                        // background-color: $color;
+                        color: $cool-blue;
+                    }
+                }
+
+                li:nth-of-type(6) {
+                    margin-bottom: auto;
+                }
         }
 
         .burger {
             display: block;
         }
     }
+           }
+
+           nav.active {
+            background-color: $cool-blue;
+             box-shadow: 3px 3px 7px rgb(0 0 0 / .2);
+
            }
 
         
@@ -273,7 +321,7 @@ main#theDeal  {
     h1.main_header {
         text-align: center;
         padding: 1.5em 0 0;
-        letter-spacing: 3px;
+        letter-spacing: $section_header_ls;
 
         &::after {
             content: '';
@@ -304,9 +352,8 @@ main#theDeal  {
         margin: 20px auto;
         padding: 0 0 4em 0;
         background-color: $deep-cool;
-        border-radius: 5pt;
-        box-shadow: 3px 3px 7px rgb(0 0 0 / .2),
-        -3px -3px 7px rgb(0 0 0 / .2);
+        border-radius: $justOkay_br;
+        box-shadow: $justOkay_bs;
         padding: 3em 2em;
 
         h2.history  {
@@ -325,5 +372,146 @@ main#theDeal  {
             shape-margin: 2rem;
             margin-right: 1rem;
         }
+    }
+
+    // Coursessection
+    section.courses {
+        width: 80%;
+        margin: 3em auto 0;
+        
+
+        h2.course_heading {
+            text-align: center;
+            letter-spacing: $section_header_ls;
+        }
+
+        .courses_cards {
+            width: 100%;
+            background-color: $cool-blue;
+            margin: 2em auto;
+            min-height: 50vh;
+            border-radius: $justOkay_br;
+            box-shadow: $justOkay_bs;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+            flex-wrap: wrap;
+            padding: 3em;
+
+            // All general cards
+               // For the card
+                .card {
+                    width: 300px;
+                    height: auto;
+                    padding: 0 0 3em;
+                    background-color: #fff;
+                    box-shadow: 0 3px 10px rgb(0 0 0 /.15);
+                    border-radius: $justOkay_br;
+                    position: relative;
+                    margin-bottom: 1em;
+                                  
+                  
+                  div:not(.img_container) {
+                    position: relative;
+                    height: 100px;
+                    width: 100px;
+                  /*   background-color: red; */
+                    overflow: hidden;
+                    top: -10px;
+                    left: -10px;
+                    z-index: 100;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;                
+                      
+                                       
+                    &::before {
+                    content: '30% OFF';
+                    position: absolute;
+                    width: 150%;
+                    height: 40px;
+                    background-color: $another-cool-color;
+                    transform: rotate(-45deg) translateY(-20px);
+                    display: flex;
+                    justify-content:center;
+                    align-items: center;
+                    color: #fff;
+                    box-shadow: 0 5px 10px rgb(0 0 0 /.1);
+                    font-weight: 900;
+                  }
+                  
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    height: 10px;
+                    width: 10px;
+                    background-color: $deep-cool;
+                     box-shadow: 90px -90px $deep-cool; /* 100 - 10 - 90 => box-shadow*/
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;
+                  }
+                  }
+                  
+                  
+
+               
+                
+                figure {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    color: black;
+                    align-items: center;
+                    width: 100%;
+
+                    .img_container {
+                        margin: 0;
+                        display: inherit;
+                        justify-content: inherit;
+                        align-items: center;
+                        width: 150px;
+                        height: 150px;
+                        border-radius: $circles !important;
+                    }
+
+                    figcaption {
+                        width: inherit;
+                        text-align: center;
+                        h2 {
+                            letter-spacing: $section_header_ls;
+                        }
+
+                        .price {
+                            font-size: 2rem;
+                            padding: 0.2em 0 0.5em;
+
+                            sup {
+                                font-size: 1rem;
+                            }
+                        }
+
+                        a[role="button"] {
+                            color: $another-cool-color;
+                            font-family: $open-guy;
+                            text-decoration: none;
+                            border: 2px solid currentColor;
+                            padding: 0.5em;
+                            width: 100%;
+                            border-radius: $justOkay_br;
+                            transition: border-radius $genTrans;
+                            
+                            &:hover {
+                                border-radius: 0;
+                                background-color: $another-cool-color;
+                                color: $color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

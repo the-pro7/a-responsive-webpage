@@ -21,6 +21,10 @@ html(lang="en")
                   a(href="#") Learn
                 li 
                   a(href="#") I'm ready
+                li 
+                  a(href="#" class="login") Login
+                li 
+                  a(href="#") Join
                   
               .burger 
                 .line1
@@ -52,6 +56,41 @@ html(lang="en")
                               voluptate voluptates laborum, quasi, tempora laboriosam dolores earum. Aut debitis earum sit iure, quos repudiandae voluptatibus eveniet nam, labore pariatur magni officiis nulla officia eos distinctio, sint consequuntur. Voluptatum, amet ab fugiat quas ea explicabo commodi omnis iusto, 
                               nisi voluptatem modi laborum a ullam numquam? Maxime recusandae impedit et eos, dolorum accusantium enim hic? Quaerat, provident veniam?
         section.courses 
-            h2.course_heading Our Courses 
+            h2.course_heading Our Courses
+            //- Courses div
+            .courses_cards 
+              //- First course / JS course card
+              .js_course.card
+                div
+                figure 
+                  .img_container 
+                      img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png?20141107110902", alt="JS logo", width="120")
+                  figcaption 
+                    h2 JavaScript
+                    p.price $36 
+                      sup 99
+                    a(href="#" role="button") Buy Now
+              
+              .js_course.card
+                  div
+                  figure 
+                    .img_container 
+                        img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png?20141107110902", alt="JS logo", width="120")
+                    figcaption 
+                      h2 JavaScript
+                      p.price $36 
+                        sup 99
+                      a(href="#" role="button") Buy Now
+              .js_course.card
+                  div
+                  figure 
+                    .img_container 
+                        img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png?20141107110902", alt="JS logo", width="120")
+                    figcaption 
+                      h2 JavaScript
+                      p.price $36 
+                        sup 99
+                      a(href="#" role="button") Buy Now
+              
 
       script(src="scripts.js" defer)
